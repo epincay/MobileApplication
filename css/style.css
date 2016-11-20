@@ -52,7 +52,7 @@ ul li{
 }
 
 #navlist li a:link{ 
-    color: #FFF; 
+    color: #448; 
 }
 #navlist li a:hover{
     color: #DDE; 
@@ -61,7 +61,6 @@ ul li{
 }
 #navlist li a#current{ 
     background: #002573; 
-    color: #FFF
 }
 
 .imagen{
