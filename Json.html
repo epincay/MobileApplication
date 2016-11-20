@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Eddie Pincay - CIT 261 Mobile Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    </head>
+    <body>        
+        <div id="navcontainer">
+            <ul id="navlist">
+                <li id="active"><a href="inde.html" id="current">Home</a></li>
+            </ul>
+        </div>
+        <!-- Sandbox Section -->
+        <h1>Example JSON PARSE AND STRINGIFY</h1>
+        <h3>JSON is a format for storing and transporting data. JSON is often used when data is sent from a server to a web page.</h3>
+        <div>
+            <p>This example creates a JSon file with the names of several people 
+                and their ages. These names are shown in a table. We will choose a location number and 
+                show all information of this person.</p>
+            <p id="content1"></p>
+            <p>Select a number : <input name="insertnumber" type="text" id="number" ></p>
+            <input type="button" onclick="createJson()" value="Click for Result" >
+            <h4>Result</h4>
+            <p id="content"></p>
+        </div>
+               
+        <!-- /Sandbox Section -->
+            <!-- Footer Section -->
+        <section class="footer">
+            <h2>THANKS FOR VISITING US</h2>
+            <hr>
+            <div class="copyright">
+                <p>© 2016 Mobile Aplications CIT 261. All Rights Reserved | Design by Eddie Pincay</p>
+            </div>
+        </section>
+        <!-- /Footer Section -->
+        <script>
+            var objetos = {"Persons":[
+                {"name":"Jorge","age":23,"lastname":"Tovar","occupation":"Student"},
+                {"name":"Eddie","age":17,"lastname":"Pincay","occupation":"Doctor"},
+                {"name":"Silvia","age":25,"lastname":"Moscoso","occupation":"Mom"},
+                {"name":"Daniela","age":20,"lastname":"Pincay","occupation":"Student"},
+                {"name":"Mariana","age":30,"lastname":"Tovar","occupation":"Dancer"},
+                {"name":"Julio","age":22,"lastname":"Aristega","occupation":"Engineer"},
+                {"name":"Sariah","age":24,"lastname":"Pincay","occupation":"Dancer"}
+            ]};
+            var i, dis;
+            for(i=0, dis = "";i < objetos.Persons.length ; i++){
+                dis += i + " - " + objetos.Persons[i].name + " - " + objetos.Persons[i].age + '<br>';
+            }
+            document.getElementById('content1').innerHTML = dis;
+
+            function createJson(){
+                var select = document.getElementById("number").value;
+                var j = 0;
+                if(select => 0 && select <= 6){
+                    for(j=0;j < objetos.Persons.length ; j++){
+                        if(j == select){
+                            document.getElementById('content').innerHTML = "I'm " + objetos.Persons[j].name + " " + objetos.Persons[j].lastname + "." 
+                            + " I have a " + objetos.Persons[j].age + " years old and my occupation is " + objetos.Persons[j].occupation;
+                            /*Declarar un objeto JSON con una funcion en un atributo
+                             notese el uso de "this" que hace referencia a el objeto en sí, es decir a persona*/
+                            ;
+                        }
+                    }
+                }
+                if(select > 6){
+                    var persona = {"avisar":function(){alert("Insert a number between 0 - 6");}
+                    };
+
+                    persona.avisar();
+                }
+
+            }
+        </script>
+    </body>
+</html>
