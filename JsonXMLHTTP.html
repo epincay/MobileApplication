@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Eddie Pincay - CIT 261 Mobile Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    </head>
+    <body>        
+        <div id="navcontainer">
+            <ul id="navlist">
+                <li id="active"><a href="index.html" id="current">Home</a></li>
+            </ul>
+        </div>
+        <!-- Sandbox Section -->
+        
+        <h1>Example Using XMLHTTPRequest to Consume a JSON Web Service</h1>
+        <h3>A common use of JSON is to read data from a web server, and display the data in a web page.</h3>
+        <div>                         
+            <p>In this exercise I will use a json file to get the information and then display it on the screen.</p>
+            <input type="text" id="file" value="employees.json" />
+            <input type="button" value="Show" onclick="readFile()" />
+            <br>
+            <br>
+            <div id="table"></div>
+            <br>
+            <br>
+        </div>
+                        
+        <!-- /Sandbox Section -->
+            
+            <!-- Footer Section -->
+        <section class="footer">
+            <h2>THANKS FOR VISITING US</h2>
+            <hr>
+            <div class="copyright">
+                <p>© 2016 Mobile Aplications CIT 261. All Rights Reserved | Design by Eddie Pincay</p>
+            </div>
+        </section>
+        <!-- /Footer Section -->
+        <script>
+            function readFile() {
+                var xhttp = new XMLHttpRequest();
+                var input = document.getElementById("file").value;
+                var url = new URL("https://epincay.github.io/Pincay-Eddie/" + input);
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var value = JSON.parse(this.responseText);
+                        var list = "<table><tr><th>Name</th><th>Deparment</th><th>Salary</th></tr>\n";
+                        for (var i = 0; i < value.employees.length; i++) {
+                            list += "<tr><td>" + value.employees[i].firstName + " " + value.employees[i].lastName + "</td><td>" 
+                                    + value.employees[i].department + "</td><td>" + value.employees[i].salary + "</td></tr>\n";
+                        }
+                        document.getElementById("table").innerHTML = list;                
+                    }
+                }
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+        </script>
+    </body>
+</html>
