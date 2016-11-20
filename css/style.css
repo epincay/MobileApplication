@@ -61,6 +61,7 @@ ul li{
 }
 #navlist li a#current{ 
     background: #002573; 
+    color: #FFF
 }
 
 .imagen{
