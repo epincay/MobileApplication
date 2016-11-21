@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript - CIT 261 Mobile Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <style type="text/css">
+            .box {
+                width: 80px;
+                height: 80px;
+                background: green;
+                -webkit-transition: width 3s, height 3s, -webkit-transform 2s; 
+                transition: width 3s, height 3s, transform 2s;
+                transition-delay: 0.5s;
+            }
+            .box:hover {
+                width: 200px;
+                height: 200px;
+                background: blue;
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+            .box1{
+                width: 80px;
+                height: 80px;
+                background: red;
+                -webkit-transition: width 4s, height 2s; 
+                transition: width 4s, height 2s;
+            }
+            .box1:hover{
+                background: greenyellow;
+                width: 200px;
+                height: 200px;
+            }
+            .box2{
+                width: 30px;
+                height: 30px;
+                background-color: red;
+                position: relative;
+                /* Safari 4.0 - 8.0 */
+                -webkit-animation-name: move;
+                -webkit-animation-duration: 5s;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-delay: 2s;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-direction: alternate;
+                /* Standard syntax */
+                animation-name: move;
+                animation-duration: 5s;
+                animation-timing-function: linear;
+                animation-delay: 2s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            @-webkit-keyframes move {
+                0%   {background-color:blue; left:0px; top:0px;}
+                25%  {background-color:greenyellow; left:50px; top:0px;}
+                50%  {background-color:yellowgreen; left:50px; top:50px;}
+                75%  {background-color:yellow; left:0px; top:50px;}
+                100% {background-color:red; left:0px; top:0px;}
+            }
+
+            @keyframes move {
+                0%   {background-color:blue; left:0px; top:0px;}
+                25%  {background-color:greenyellow; left:50px; top:0px;}
+                50%  {background-color:yellowgreen; left:50px; top:50px;}
+                75%  {background-color:yellow; left:0px; top:50px;}
+                100% {background-color:red; left:0px; top:0px;}
+            }
+            
+            .heart {
+                position: relative;
+                width: 100px;
+                height: 90px;
+                margin: 30px;
+
+                -webkit-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+                -moz-transform: scale(1);
+                transform: scale(1);
+                -webkit-transform-origin: center center;
+                -moz-transform-origin: center center;
+                -ms-transform-origin: center center;
+                -o-transform-origin: center center;
+                transition: all 1s; 
+            }
+            .heart.css {  
+                -webkit-animation-delay:1s;
+                -moz-animation-delay:1s;
+                -ms-animation-delay:1s;
+                -o-animation-delay:1s;
+                animation-dely:1s;
+            }
+            .heart.animated {
+                -webkit-animation: 1600ms pulsate infinite alternate ease-in-out;
+                -moz-animation: 1600ms pulsate infinite alternate ease-in-out;
+                -ms-animation: 1600ms pulsate infinite alternate ease-in-out;
+                -o-animation: 1600ms pulsate infinite alternate ease-in-out;
+                animation: 1600ms pulsate infinite alternate ease-in-out;
+            }
+            .heart:before,
+            .heart:after { 
+                position: absolute; 
+                content: "";
+                left: 50px;
+                top: 0;
+                width: 50px;
+                height: 80px;
+                background: red;
+                -moz-border-radius: 50px 50px 0 0;
+                border-radius: 50px 50px 0 0;
+                -webkit-transform: rotate(-45deg);
+                   -moz-transform: rotate(-45deg);
+                    -ms-transform: rotate(-45deg);
+                     -o-transform: rotate(-45deg);
+                        transform: rotate(-45deg);
+                -webkit-transform-origin: 0 100%;
+                   -moz-transform-origin: 0 100%;
+                    -ms-transform-origin: 0 100%;
+                     -o-transform-origin: 0 100%;
+                        transform-origin: 0 100%;
+            }
+            .heart:after {
+              left: 0;
+                -webkit-transform: rotate(45deg);
+                   -moz-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                     -o-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                -webkit-transform-origin: 100% 100%;
+                   -moz-transform-origin: 100% 100%;
+                    -ms-transform-origin: 100% 100%;
+                     -o-transform-origin: 100% 100%;
+                        transform-origin :100% 100%;
+            }
+            .heart.css:hover {
+                -webkit-transform: scale(2);
+                -moz-transform: scale(2);
+                -ms-transform: scale(2);
+                -o-transform: scale(2);
+                transform: scale(2);
+                -webkit-animation:'';
+                -moz-animation:none;
+                -ms-animation:'';
+                -o-animation:'';
+                animation:'';
+            }
+
+            @keyframes pulsate {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.3); }
+                100% { transform: scale(1); }
+            }
+            @-webkit-keyframes pulsate {
+                0% { -webkit-transform: scale(1); }
+                50% { -webkit-transform: scale(1.3); }
+                100% { -webkit-transform: scale(1); }
+            }
+            @-moz-keyframes pulsate {
+                0% { -moz-transform: scale(1); }
+                50% { -moz-transform: scale(1.3); }
+                100% { -moz-transform: scale(1); }  
+            }
+            @-ms-keyframes pulsate {
+                0% { -ms-transform: scale(1); }
+                50% { -ms-transform: scale(1.3); }
+                100% { -ms-transform: scale(1); }  
+            }
+            @-o-keyframes pulsate {
+                0% { -o-transform: scale(1); }
+                50% { -o-transform: scale(1.3); }
+                100% { -o-transform: scale(1); }  
+            }
+        </style>
+    </head>
+    <body>        
+        <div id="navcontainer">
+            <ul id="navlist">
+                <li id="active"><a href="index.html" id="current">Home</a></li>
+            </ul>
+        </div>
+        <div>
+            <h1>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</h1>
+            <h3></h3>
+            <div>
+                <h4>CSS3 Transitions</h4>
+                <div class='box'>Hover here and see</div> 
+                <br>
+                <div class='box1'>Hover here and see</div> 
+            </div>
+            <div>
+                <h4>CSS3 Animations</h4>
+                <div class='box2'>(;</div> 
+                <br>
+                <br>
+                <div class='box3'></div> 
+            </div>
+            <h4>Animations and Transitions with JavaScript</h4>
+            <div class='heart animated css'></div>
+        </div>
+        
+            <!-- Footer Section -->
+        <section class="footer">
+            <h2>THANKS FOR VISITING US</h2>
+            <hr>
+            <div class="copyright">
+                <p>© 2016 Mobile Aplications CIT 261. All Rights Reserved | Design by Eddie Pincay</p>
+            </div>
+        </section>
+        <!-- /Footer Section -->
+        <script>
+            var heart = document.getElementsByClassName('heart')[1],
+            pfx = ["webkit", "moz", "MS", "o", ""],
+            hovered = false;
+
+            function AnimationListener() {
+                if(hovered)
+                { 
+                  heart.classList.remove('animated'); 
+                  heart.style.webkitTransform = 'scale(2)';
+                  heart.style.MozTransform = 'scale(2)';
+                  heart.style.msTransform = 'scale(2)';
+                  heart.style.OTransform = 'scale(2)';
+                  heart.style.transform = 'scale(2)';
+                }
+            }
+
+            function TransitionListener() {
+              if(!hovered)
+              {
+                heart.classList.add('animated');
+              }
+            }
+
+            function PrefixedEvent(element, type, callback) {
+                for (var p = 0; p < pfx.length; p++) {
+                    if (!pfx[p]) type = type.toLowerCase();
+                    element.addEventListener(pfx[p]+type, callback, false);
+                }
+            }
+
+            PrefixedEvent(heart, "AnimationIteration", AnimationListener);
+
+            heart.onmouseover = function() {
+              hovered = true;
+            }
+            heart.onmouseout = function() {
+              setTimeout(function() { hovered = false; }, 500);
+              PrefixedEvent(heart, "TransitionEnd", TransitionListener);
+              heart.style.webkitTransform = 'scale(1)';
+              heart.style.MozTransform = 'scale(1)';
+              heart.style.msTransform = 'scale(1)';
+              heart.style.OTransform = 'scale(1)';
+              heart.style.transform = 'scale(1)';  
+            }
+        </script>
+    </body>
+</html>
