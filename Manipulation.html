@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Eddie Pincay - CIT 261 Mobile Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    </head>
+    <body>        
+        <div id="navcontainer">
+            <ul id="navlist">
+                <li id="active"><a href="index.html" id="current">Home</a></li>
+            </ul>
+        </div>
+        <div id="appendChild">
+            <h1>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</h1>
+            <h3>.</h3>
+            <h4>New Element with appendChild()</h4>
+            <p>This code appendChild appends the new element to the existing element.</p>
+            <p>Cites</p>
+            <p id="p1">Argentina</p>
+            <p id="p2">Colombia</p>
+            <p id="p3">Peru</p>
+            <p id="p4">USA</p>
+            <p id="p5">Brazil</p>
+            <p id="p6">Honduras</p>
+        </div>
+        <div id="insertBefore">            
+            <h4>New Element with insertBefore()</h4>
+            <p>This code insertBefore appends the new element in the top.</p>
+            <p>Cites</p>
+            <p id="q1">Argentina</p>
+            <p id="q2">Colombia</p>
+            <p id="q3">Peru</p>
+            <p id="q4">USA</p>
+            <p id="q5">Brazil</p>
+            <p id="q6">Honduras</p>
+        </div>
+        <div id="removeChild">            
+            <h4>Remove element with removeChild()</h4>
+            <p>To remove the element. Example I remove Argentina, Usa, Honduras and Brazil.</p>
+            <p>Cites</p>
+            <p id="r1">Argentina</p>
+            <p id="r2">Colombia</p>
+            <p id="r3">Peru</p>
+            <p id="r4">USA</p>
+            <p id="r5">Brazil</p>
+            <p id="r6">Honduras</p>
+        </div>
+        
+        <div>
+           <input type="button" value="Change Color with Dom" onclick="changeColor()" />
+        </div>
+            <!-- Footer Section -->
+        <section class="footer">
+            <h2>THANKS FOR VISITING US</h2>
+            <hr>
+            <div class="copyright">
+                <p>© 2016 Mobile Aplications CIT 261. All Rights Reserved | Design by Eddie Pincay</p>
+            </div>
+        </section>
+        <!-- /Footer Section -->
+        <script>
+            //appendChild
+            var para = document.createElement("p");
+            var node = document.createTextNode("Ecuador is added");
+            para.appendChild(node);
+            var element = document.getElementById("appendChild");
+            element.appendChild(para);
+            
+            //insertBefore
+            var para1 = document.createElement("p");
+            var node1 = document.createTextNode("Ecuador is added");
+            para1.appendChild(node1);
+
+            var element1 = document.getElementById("insertBefore");
+            var child1 = document.getElementById("q1");
+            element1.insertBefore(para1,child1);
+            
+            //removeChild
+            var parent = document.getElementById("removeChild");
+            var child2 = document.getElementById("r1");
+            parent.removeChild(child2);
+            var child2 = document.getElementById("r4");
+            parent.removeChild(child2);
+            var child2 = document.getElementById("r5");
+            parent.removeChild(child2);
+            var child2 = document.getElementById("r6");
+            parent.removeChild(child2);
+            
+            function changeColor() {
+                var myNodelist = document.getElementsByTagName("p");
+                var i;
+                for (i = 0; i < myNodelist.length; i++) {
+                    myNodelist[i].style.color = "green";
+                }
+}
+        </script>
+    </body>
+</html>
+
