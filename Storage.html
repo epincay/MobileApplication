@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Eddie Pincay - CIT 261 Mobile Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    </head>
+    <body>        
+        <div id="navcontainer">
+            <ul id="navlist">
+                <li id="active"><a href="index.html" id="current">Home</a></li>
+            </ul>
+        </div>
+        <div>
+            <h1>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</h1>
+            <h3>.</h3>
+            <input type="button" value="Storage Function" onclick="greet()" />
+            <input type="button" value="Storage Object" onclick="storageObject()" />
+            <input type="button" value="Storage Array" onclick="storageArray()" />
+            <input type="button" value="Storage Associative Array" onclick="storageAssoArray()" />
+            <p id="result1"></p>
+            <p id="result"></p>
+        </div>
+            <!-- Footer Section -->
+        <section class="footer">
+            <h2>THANKS FOR VISITING US</h2>
+            <hr>
+            <div class="copyright">
+                <p>© 2016 Mobile Aplications CIT 261. All Rights Reserved | Design by Eddie Pincay</p>
+            </div>
+        </section>
+        <!-- /Footer Section -->
+        <script>
+            function greet() {
+                
+                var name = localStorage.getItem ("name");
+                if (name == null || name == "") {
+                  alert ( "Hi, Strange! ");
+                  localStorage.setItem ( "name", "Eddie Pincay");
+                } else {
+                  result1= ( "Hola " + name + "!");
+                  document.getElementById("result1").innerHTML = result1;
+                } // Finish Hello
+                if(typeof(Storage) !== "undefined") {
+                    if (localStorage.clickcount) {
+                        localStorage.clickcount = Number(localStorage.clickcount)+1;
+                    } else {
+                        localStorage.clickcount = 1;
+                    }
+                    document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                }
+            } // End function  
+            function storageObject() {
+
+              var course = localStorage.getItem ("course");
+              if (course == null || course == "") {
+                alert ( "Hi, What is your course! ");
+                localStorage.course = 'CIT 261';
+              } else {
+                result1= ( "Your course is " + course + "!");
+                document.getElementById("result1").innerHTML = result1;
+              } // Finish Object form
+              if(typeof(Storage) !== "undefined") {
+                  if (localStorage.clickcount) {
+                      localStorage.clickcount = Number(localStorage.clickcount)+1;
+                  } else {
+                      localStorage.clickcount = 1;
+                  }
+                  document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+              } else {
+                  document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+              }
+            } // End function
+            function storageArray() {
+
+              var food = localStorage.getItem ("food");
+              if (food == null || food == "") {
+                alert ( "Hi, What is your favorite food! ");
+                localStorage['food'] =  JSON.stringify(["Lagsana", "Ravioli", "Rice and Fish"]);
+              } else {
+                  food = JSON.parse(localStorage['food']);
+                result1= ( "Your favorite food is " + food[1] + "!");
+                document.getElementById("result1").innerHTML = result1;
+              } // Finish Array form
+              if(typeof(Storage) !== "undefined") {
+                  if (localStorage.clickcount) {
+                      localStorage.clickcount = Number(localStorage.clickcount)+1;
+                  } else {
+                      localStorage.clickcount = 1;
+                  }
+                  document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+              } else {
+                  document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+              }
+            } // End function
+            
+            function storageAssoArray() {
+
+              var job = localStorage.getItem ("job");
+              if (job == null || job == "") {
+                alert ( "Hi, What is your job! ");
+                localStorage['job'] = JSON.stringify({"Persons":[
+                                        {"name":"Jorge","age":23,"lastname":"Tovar","occupation":"Student"},
+                                        {"name":"Eddie","age":17,"lastname":"Pincay","occupation":"Doctor"},
+                                        {"name":"Silvia","age":25,"lastname":"Moscoso","occupation":"Mom"},
+                                        {"name":"Daniela","age":20,"lastname":"Pincay","occupation":"Student"},
+                                        {"name":"Mariana","age":30,"lastname":"Tovar","occupation":"Dancer"},
+                                        {"name":"Julio","age":22,"lastname":"Aristega","occupation":"Engineer"},
+                                        {"name":"Sariah","age":24,"lastname":"Pincay","occupation":"Dancer"}
+                ]});
+              } else {
+                job = JSON.parse(localStorage['job']);  
+                result1= ( "Your job is a " + job.Persons[1].occupation + "!");
+                document.getElementById("result1").innerHTML = result1;
+              } // Finish Array form
+              if(typeof(Storage) !== "undefined") {
+                  if (localStorage.clickcount) {
+                      localStorage.clickcount = Number(localStorage.clickcount)+1;
+                  } else {
+                      localStorage.clickcount = 1;
+                  }
+                  document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+              } else {
+                  document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+              }
+            } // End function
+        </script>
+    </body>
+</html>
