@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>HTML5 Tags - Video, Audio, and Canvas - CIT 261 Mobile Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    </head>
+    <body>        
+        <div id="navcontainer">
+            <ul id="navlist">
+                <li id="active"><a href="index.html" id="current">Home</a></li>
+            </ul>
+        </div>
+        <h1>HTML5 Tags - Video, Audio, and Canvas</h1>
+        <h3>Tags help us more things enter our site.</h3>
+        <h4>Tags video</h4>
+        <p>You have many attributes for example loop, muted, preload, poster, autoplay and controls. In this example. I use autoplay anda controls</p>
+        <video width="540" height="350" autoplay="" controls="">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <h4>Tags audio</h4>
+        <p>You have many attributes. Example: autoplay, controls, muted, loop, src. I use attribute loop in this example.</p>
+        <audio controls="" loop>
+            <source src="music.mp4" type="audio/mpeg">
+        </audio>
+        
+        <h4>Canvas</h4>
+        <p>The "canvas" tag is used to draw graphics, on the fly, via scripting (usually JavaScript).</p>
+        <canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+
+            <!-- Footer Section -->
+        <section class="footer">
+            <h2>THANKS FOR VISITING US</h2>
+            <hr>
+            <div class="copyright">
+                <p>© 2016 Mobile Aplications CIT 261. All Rights Reserved | Design by Eddie Pincay</p>
+            </div>
+        </section>
+        <!-- /Footer Section -->
+        
+        <script>
+            var c = document.getElementById("myCanvas");
+            var cxt = c.getContext("2d");
+
+            cxt.beginPath();
+            cxt.arc(60,60,40,0,Math.PI*2,true); //arc(x,y,radio,angulo_inicio,angulo_final,sentido[antihorario-true / horario-false])
+            cxt.closePath;
+            cxt.stroke();
+
+            cxt.beginPath();
+            cxt.arc(140,60,40,0,Math.PI,true); // Un arco de medio circulo en sentido antihorario
+            cxt.closePath;
+            cxt.stroke();
+
+            cxt.beginPath();
+            cxt.arc(220,60,40,0,Math.PI*2,false); // Dibuja el circulo en sentido horario
+            cxt.closePath;
+            cxt.fill(); // Un circulo relleno
+
+            cxt.beginPath();
+            cxt.arc(140,60,30,Math.PI,Math.PI*1.5); // Un arco de medio circulo en sentido horario
+            cxt.closePath;
+            cxt.fill();
+
+            cxt.beginPath();
+            cxt.arc(140,60,30,0,Math.PI*0.5); // Un arco de medio circulo en sentido horario
+            cxt.lineTo(140,60);
+            cxt.closePath;
+            cxt.fill();
+       </script> 
+    </body>
+</html>
