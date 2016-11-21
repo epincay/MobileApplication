@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Manipulating CSS Class Properties Using JavaScript - CIT 261 Mobile Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    </head>
+    <body id="body">        
+        <div id="navcontainer">
+            <ul id="navlist">
+                <li id="active"><a href="index.html" id="current">Home</a></li>
+            </ul>
+        </div>
+        <div>
+            <h1>Manipulating CSS Class Properties Using JavaScript</h1>
+            <h3>This part you Manipulating CSS Class Properties in Javascript.</h3>
+            <h4 id="title">My favorite scripture</h4>
+            <p id="scripture">1 Nefi 3:7</p>
+            <p id="scripture1">And it came to pass that I, Nephi, said unto my father: 
+                I will go and do the things which the Lord hath commanded, for I 
+                know that the Lord giveth no commandments unto the children of men, 
+                save he shall prepare a way for them that they may accomplish the thing 
+                which he commandeth them.</p>
+            <button type="button" onclick="changeColor()">Change TitleColor</button>
+            <button type="button" id="button1" onclick="changeBackground()">Change Background</button>            
+            <button type="button" onclick="changeScripture()">Change Scripture</button>
+        </div>
+            <!-- Footer Section -->
+        <section class="footer">
+            <h2>THANKS FOR VISITING US</h2>
+            <hr>
+            <div class="copyright">
+                <p>© 2016 Mobile Aplications CIT 261. All Rights Reserved | Design by Eddie Pincay</p>
+            </div>
+        </section>
+        <!-- /Footer Section -->
+        <script>
+            
+            var n=1, x=0;
+            function changeColor(){
+                if (document.getElementById("title").style.color == "blue")
+                    document.getElementById("title").style.color = "#8A0B00";
+                else
+                    document.getElementById("title").style.color = "blue";
+            }
+            function changeScripture(){
+                if (n == 1){
+                    document.getElementById("scripture").innerHTML = "Alma 32:21";
+                    document.getElementById("scripture1").innerHTML = " And now as I said concerning faith—faith \n\
+                                is not to have a perfect knowledge of things; therefore if ye have faith ye hope for \n\
+                                things which are not seen, which are true.";
+                    n = 0;
+                }else{
+                    n = 1;
+                    document.getElementById("scripture").innerHTML = "1 Nefi 3:7";
+                    document.getElementById("scripture1").innerHTML = " And it came to pass that I, Nephi, said unto my father: \n\
+                                I will go and do the things which the Lord hath commanded, for I know that the Lord giveth \n\
+                                no commandments unto the children of men, save he shall prepare a way for them that they \n\
+                                may accomplish the thing which he commandeth them.";
+                }
+                
+            }
+            function changeBackground(){
+                if (x==0){
+                    document.getElementById("body").style.backgroundColor = "green";
+                    document.getElementById("body").style.color = "#FFF";
+                    x = 1;
+                }
+                else {
+                    document.getElementById("body").style.backgroundColor = "#DDE";
+                    document.getElementById("body").style.color = "#000000";
+                    x = 0;
+
+                }
+            }
+        </script>
+    </body>
+</html>
