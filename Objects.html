@@ -32,6 +32,17 @@ and open the template in the editor.
                 <p id="result2"></p>
 
             </div>
+            <div>
+                <h4> Inheritance</h4>
+                <form>
+                    Enter First Name: <br>
+                    <input type="text" id="first"><br>Enter Last Name: <br>
+                    <input type="text" id="last">
+                    <input type="button" onclick="createPerson()" value="Click for Result" >
+                    
+                </form>
+                <p id="result3"></p>
+            </div>
         <!-- /Sandbox Section -->
             <!-- Footer Section -->
         <section class="footer">
@@ -61,6 +72,17 @@ and open the template in the editor.
                 document.getElementById("result1").innerHTML = "The function definition to created a fullName is : " + info.fullName;
                 document.getElementById("result").innerHTML = "Your full name is " + info.fullName();
                 document.getElementById("result2").innerHTML = "Now I use to property and displayed the phone : " + info.phone + " and the mail: " + info.mail;
+            }
+            function createPerson(){
+                var person = new Object();
+                
+                person.first = document.getElementById("first").value;
+                person.last = document.getElementById("last").value;
+                
+                document.getElementById("result3").innerHTML = "Hi, " + person.first + " " + person.last + " good day.";
+                
+                
+                                   
             }
         </script>
     </body>
