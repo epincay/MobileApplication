@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Standard JavaScript Events Including those for Mobile Devices - CIT 261 Mobile Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    </head>
+    <body onload="load()">        
+        <div id="navcontainer">
+            <ul id="navlist">
+                <li id="active"><a href="index.html" id="current">Home</a></li>
+            </ul>
+        </div>
+        <div>
+            <h1>Standard JavaScript Events Including those for Mobile Devices</h1>
+            <h3>Event handlers can be used to handle, and verify, user input, user actions, and browser actions.</h3>
+            <h4>Onclick Event</h4>
+            <p>Click the button to display the date.</p>
+            <button onclick="displayDate()">The time is?</button>
+            <p id="result"></p>
+
+            <h4>Oncopy Event</h4>
+            <input type="text" oncopy="messagecopy()" value="Try to copy this text :)">
+            <p id="result1"></p>
+            
+            <h4>Onchange Event</h4>
+            <p>Select a person.</p>
+            <select id="mySelect" onchange="createOn()">
+                <option value="Eddie">Eddie
+                <option value="Silvia">Silvia
+                <option value="Sariah">Sariah
+                <option value="Julio">Julio
+                <option value="Danielita">Danielita
+            </select>            
+            <p id="result2"></p>
+            
+            <h4>Onsubmit Event</h4>
+            <form action="#" onsubmit="myEvent()">
+                <p>Enter your first name: <input type="text" name="fname"></p>
+                <p>Enter your last name: <input type="text" name="lname"></p>
+                <input type="submit" value="Submit">
+            </form>
+            
+        </div>
+            <!-- Footer Section -->
+        <section class="footer">
+            <h2>THANKS FOR VISITING US</h2>
+            <hr>
+            <div class="copyright">
+                <p>© 2016 Mobile Aplications CIT 261. All Rights Reserved | Design by Eddie Pincay</p>
+            </div>
+        </section>
+        <!-- /Footer Section -->
+        <script>
+            function displayDate() {
+                document.getElementById("result").innerHTML = Date();
+            }
+            function load() {
+                alert("Page is loaded");
+            }
+            function messagecopy() {
+                document.getElementById("result1").innerHTML = "You copied text!"
+            }
+            function createOn() {
+                var s = document.getElementById("mySelect").value;
+                document.getElementById("result2").innerHTML = "You selected: " + s;
+            }
+            function myEvent() {
+                alert("The form was submitted");
+            }
+        </script>
+    </body>
+</html>
