@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Eddie Pincay - CIT 261 Mobile Application</title>
+        <title>Loops, Conditional, Variables, Functions - CIT 261 Mobile Application</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -47,11 +47,17 @@ and open the template in the editor.
             <h1>Examples Conditional Staments</h1>
             <h3>I have a examples to condicional staments and use loop for.</h3>
             <div>  
-                <p class="abt slideanim">In this example you insert a number and then you seen an all odd numbers between 0 to the number you insert.</p>
+                <p>In this example you insert a number and then you seen an all odd numbers between 0 to the number you insert.</p>
                 <p>Insert a number : </p><input name="insertnumber" type="text" id="number3" >
                 <input type="button" onclick="createOddNumber()" value="Click for Result" >
-                <p class="abt slideanim text-justify" id="result3"></p>
+                <p id="result3"></p>
                             
+            </div>
+            <div>
+                <h4>Example2</h4>
+                <p>In this example your see the use the conditions and arrays</p>                
+                <input type="button" onclick="clickButton()" value="Click for Result" >
+                <p id="result4"></p>
             </div>
             <h1>Examples Array and Associative Arrays </h1>            
             <div>
@@ -62,6 +68,26 @@ and open the template in the editor.
                 <p>Insert an Email : </p><input name="insertemail" type="email" id="email" >
                 <input type="button" onclick="createArray()" value="Click for Result" >
                 <p id="array"></p>
+
+            </div>
+            <div>
+                <h4>Example2</h4>
+                <p>In this I use an arrays and demostrate the use associative arrays</p>
+                <p>When you created a array use this var variable = ["firstItem", "secondItem", "etc"];</p>
+                <input type="button" onclick="createArray2()" value="Click for Result" >
+                <br>
+                <p id="array2"></p>
+                <p>Then add a new name to the begining and other to the finish</p>
+                <p id="array3"></p>
+
+            </div>
+            <h1>Example to using Functions and Parameters </h1>            
+            <div>
+                
+                <p>Insert Name : </p><input name="insertname" type="text" id="pname" >
+                <p>Insert Classroom : </p><input name="insertclassroom" type="text" id="classroom" >
+                <input type="button" onclick="createFunction()" value="Click for Result" >
+                <p id="parameter"></p>
 
             </div>
             <!-- Footer Section -->
@@ -113,7 +139,20 @@ and open the template in the editor.
                         count += i + " ";                                                
                     }                     
                 }
-                document.getElementById("result3").innerHTML = "Count: " + count;
+                document.getElementById("result3").innerHTML = "Odd numbers : " + count;
+            }
+            function clickButton(){
+                // Conditional Staments
+                var num = 21;
+                var message;
+                    if (num < 10) {
+                        message = "The number is smaller than 10";
+                    } else if (num < 20) {
+                        message = "The number is smaller than 20";
+                    } else {
+                        message = "The number is greather than 20";
+                    }
+                document.getElementById("result4").innerHTML = message;
             }
             function createArray(){
                 var name = document.getElementById("name").value;
@@ -122,20 +161,46 @@ and open the template in the editor.
                 var email = document.getElementById("email").value;
                 var i;
                 var info = [0];
+                   //Created associative array for user
+                
+                info["name"] = name;                                                
 
-                 for(i = 0 ; i <= 3 ; i ++) {                     
-                    if(i == 0){
-                        info["name"] = name;                                                
-                    }else if (i == 1){
-                        info["lastname"] = lname;
-                    }else if(i == 2){
-                        info["phone"] = phone;
-                    }else{
-                        info["email"] = email;
-                    }                     
-                }
+                info["lastname"] = lname;
+
+                info["phone"] = phone;
+
+                info["email"] = email;
+                 
                 document.getElementById("array").innerHTML = "Hello, " + info["name"] +" "+ info["lastname"] +". Your phone number is : " 
                         + info["phone"] + " and your email address is " + info["email"];
+            }
+            function createArray2(){
+                //Create an array
+                var array = ["Eddie", "Daniela", "Silvia", "Poki"];
+                var result = "";
+                var result1 = "";
+                for (var i = 0; i < array.length; i++){
+                    result += array[i] + '<br>';
+                }
+                document.getElementById("array2").innerHTML = result;
+                //Add to the begining and the finish (use objects)
+                array.unshift("Pincay");
+                array.push("Cariel");
+                for (var i = 0; i < array.length; i++){
+                    result1 += array[i] + '<br>';
+                }
+                document.getElementById("array3").innerHTML = result1;
+                
+            }
+            function createFunction(){
+                var name = document.getElementById("pname").value;
+                var class1 = document.getElementById("classroom").value;
+                
+                displayClass(name, class1);
+            }
+            //function with parameters
+            function displayClass(name, class1){
+                document.getElementById("parameter").innerHTML = "Name: " + name + '<br>' + "Classroom: " + class1;
             }
         </script>
     </body>
