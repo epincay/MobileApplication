@@ -14,11 +14,11 @@ and open the template in the editor.
     <body>        
         <div id="navcontainer">
             <ul id="navlist">
-                <li id="active"><a href="inde.html" id="current">Home</a></li>
+                <li id="active"><a href="index.html" id="current">Home</a></li>
             </ul>
         </div>
         <!-- Sandbox Section -->
-        <h1>Example JSON PARSE AND STRINGIFY</h1>
+        <h1>Example JSON PARSE</h1>
         <h3>JSON is a format for storing and transporting data. JSON is often used when data is sent from a server to a web page.</h3>
         <div>
             <p>This example creates a JSon file with the names of several people 
@@ -29,6 +29,12 @@ and open the template in the editor.
             <input type="button" onclick="createJson()" value="Click for Result" >
             <h4>Result</h4>
             <p id="content"></p>
+        </div>
+        <div>
+            <h1>Example STRINGIFY</h1>
+            <h3>Converts a JavaScript value to a JavaScript Object Notation (JSON) string.</h3>
+            <input type="button" onclick="createStringify()" value="Click for Result" >
+            <p id="result"></p>
         </div>
                
         <!-- /Sandbox Section -->
@@ -79,6 +85,22 @@ and open the template in the editor.
                 }
 
             }
+            function createStringify(){
+                var continents = new Array();
+                    continents[0] = "Europe";
+                    continents[1] = "Asia";
+                    continents[2] = "Australia";
+                    continents[3] = "Antarctica";
+                    continents[4] = "North America";
+                    continents[5] = "South America";
+                    continents[6] = "Africa";
+                var jsonText = JSON.stringify(continents, replaceToUpper);
+                
+                document.getElementById("result").innerHTML = jsonText + " " + JSON.stringify(new Date());
+            }
+            function replaceToUpper(key, value) {
+                    return value.toString().toUpperCase();
+                }
         </script>
     </body>
 </html>
