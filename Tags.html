@@ -33,6 +33,7 @@ and open the template in the editor.
         <h4>Canvas</h4>
         <p>The "canvas" tag is used to draw graphics, on the fly, via scripting (usually JavaScript).</p>
         <canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+        <canvas id="myCanvas1">Your browser does not support the HTML5 canvas tag.</canvas>
 
             <!-- Footer Section -->
         <section class="footer">
@@ -49,30 +50,65 @@ and open the template in the editor.
             var cxt = c.getContext("2d");
 
             cxt.beginPath();
-            cxt.arc(60,60,40,0,Math.PI*2,true); //arc(x,y,radio,angulo_inicio,angulo_final,sentido[antihorario-true / horario-false])
+            cxt.arc(60,60,40,0,Math.PI*2,true); 
             cxt.closePath;
             cxt.stroke();
 
             cxt.beginPath();
-            cxt.arc(140,60,40,0,Math.PI,true); // Un arco de medio circulo en sentido antihorario
+            cxt.arc(140,60,40,0,Math.PI,true);
             cxt.closePath;
             cxt.stroke();
 
             cxt.beginPath();
-            cxt.arc(220,60,40,0,Math.PI*2,false); // Dibuja el circulo en sentido horario
+            cxt.arc(220,60,40,0,Math.PI*2,false); 
             cxt.closePath;
-            cxt.fill(); // Un circulo relleno
+            cxt.fill(); 
 
             cxt.beginPath();
-            cxt.arc(140,60,30,Math.PI,Math.PI*1.5); // Un arco de medio circulo en sentido horario
+            cxt.arc(140,60,30,Math.PI,Math.PI*1.5); 
             cxt.closePath;
             cxt.fill();
 
             cxt.beginPath();
-            cxt.arc(140,60,30,0,Math.PI*0.5); // Un arco de medio circulo en sentido horario
+            cxt.arc(140,60,30,0,Math.PI*0.5); 
             cxt.lineTo(140,60);
             cxt.closePath;
             cxt.fill();
+            
+            var c1 = document.getElementById("myCanvas1");
+            var cxt1 = c1.getContext("2d");
+
+            var grt = cxt1.createLinearGradient(0,10,0,50);
+            grt.addColorStop(0,"red");  
+            grt.addColorStop(1,"yellow"); 
+
+            cxt1.strokeStyle = grt; 
+            cxt1.font = "40px Book Antiqua, Sans-serif";
+            cxt1.strokeText("Degraded",50,40); 
+
+            var grt2 = cxt1.createLinearGradient(50,0,150,0);
+            grt2.addColorStop(0,"red"); 
+            grt2.addColorStop(0.3,"yellow");
+            grt2.addColorStop(0.6,"green");
+            grt2.addColorStop(1,"blue"); 
+            cxt1.fillStyle = grt2;
+            cxt1.fillRect(50,50, 100, 50);
+
+            var grt3 = cxt1.createLinearGradient(160,50,200,150);
+            grt3.addColorStop(0,"white");  
+            grt3.addColorStop(0.2,"black"); 
+            grt3.addColorStop(0.4,"white"); 
+            grt3.addColorStop(0.6,"black"); 
+            cxt1.fillStyle = grt3;
+            cxt1.fillRect(160,50, 100, 50);
+
+            var grt4 = cxt1.createRadialGradient(205,75,2,210,80,35);
+            grt4.addColorStop(0,"red");  
+            grt4.addColorStop(0.3,"rgba(0,0,255,0.3)");  
+            grt4.addColorStop(1,"#ffff00"); 
+            cxt1.fillStyle = grt4;
+            cxt1.fillRect(180,60, 60, 40);
+           
        </script> 
     </body>
 </html>
